@@ -8,10 +8,6 @@ phases:
       - apt install -y nodejs
       - echo Installing NPM...
       - npm install
-  pre_build:
-    commands:
-      - echo Installing dependencies...
-      - yarn
   build:
     commands:
       - echo Building...
