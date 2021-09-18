@@ -3,12 +3,21 @@ version: 0.2
 phases:
   install:
     commands:
-      #Install dependencies needed for running tests
+      - echo Installing Node 12...
+      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
+      - apt install -y nodejs
+      - echo Installing NPM...
       - npm install
-
-      # Upgrade AWS CLI to the latest version
-      - pip install --upgrade awscli
+  pre_build:
+    commands:
+      - echo Installing dependencies...
+      - yarn
   build:
     commands:
-      #Install dependencies needed for running tests
+      - echo Building...
       - npm run build
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: dist
