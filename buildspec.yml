@@ -8,3 +8,7 @@ phases:
 
       # Upgrade AWS CLI to the latest version
       - pip install --upgrade awscli
+  build:
+    commands:
+      #Install dependencies needed for running tests
+      - npm run build
